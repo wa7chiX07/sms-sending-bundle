@@ -7,8 +7,8 @@ SmsSendingBundle is a Symfony 3.4 bundle for tunisiesms Api .
 Use this line in config.yml file.
 
 ```yml
-sarbacane:
-    key: '%smsKey%'
+sms_sending:
+    sms_key: '%sms_Key%'
     sneder: '%sender%"
     mobile: '%mobile%'
 ```
