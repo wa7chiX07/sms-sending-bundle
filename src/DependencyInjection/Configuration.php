@@ -17,7 +17,6 @@ class Configuration implements ConfigurationInterface
             ->children()
             ->scalarNode('sms_key')->defaultValue('')->end()
             ->scalarNode('sender')->defaultValue('')->end()
-            ->scalarNode('mobile')->defaultValue('')->end()
             ;
         return $rootNode;
     }
