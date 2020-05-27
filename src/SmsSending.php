@@ -17,7 +17,7 @@ class SmsSending extends BaseManager
     {
         if(!$date)
         {
-            $date = date("y/m/d");
+            $date = date("Y/m/d");
         }
         if(!$heure)
         {
@@ -57,6 +57,41 @@ class SmsSending extends BaseManager
             $campaignSms->setStatus('success');
         self::$container->get('doctrine')->getManager()->persist($campaignSms);
         self::$container->get('doctrine')->getManager()->flush();
+
+    }
+    public static function resendCampaign($id)
+    {
+        $campaignSms = self::$container->get('doctrine')
+            ->getManager()
+            ->getRepository(CampaignSms::class)->findOneBy(array('id' => $id));
+        $error = false;
+        foreach ( $campaignSms->getCampaignMobiles() as $mobile)
+        {
+            if($mobile->getStatus()!=='OK')
+            {
+                $curl = self::getSendSms($mobile->getMobile(),$campaignSms->getMessage(),date('Y-m-d'));
+                $result = curl_exec($curl);
+                $result = str_replace('<![CDATA[',"",$result);
+                $result = str_replace(']]>',"",$result);
+                $xml = simplexml_load_string($result);
+                $json = json_encode($xml);
+                $res = json_decode($json,TRUE);
+                $mobile->setStatus($res['status']['status_msg']);
+                if($res['status']['status_code']!=="200")
+                    $error = $res['status']['status_msg'];
+                self::$container->get('doctrine')->getManager()->persist($mobile);
+
+            }
+        }
+        if($error)
+            $campaignSms->setStatus($error);
+        else
+            $campaignSms->setStatus('success');
+
+        self::$container->get('doctrine')->getManager()->persist($campaignSms);
+        self::$container->get('doctrine')->getManager()->flush();
+
+
 
     }
 }
