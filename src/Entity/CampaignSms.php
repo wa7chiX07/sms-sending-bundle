@@ -11,7 +11,7 @@ class CampaignSms
 {
     protected $id;
     protected $message;
-    protected $status;
+    protected $status = 'in progress';
     protected $date;
     protected $heure;
     protected $campaignMobiles;
