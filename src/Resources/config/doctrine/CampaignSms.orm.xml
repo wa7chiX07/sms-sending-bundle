@@ -15,5 +15,9 @@
         </field>
         <field name="heure" column="heure" type="text" nullable="false">
         </field>
+        <one-to-many target-entity="DotIt\SmsSendingBundle\Entity\CampaignMobile" mapped-by="campaignSms" field="campaignMobiles">
+        </one-to-many>
+
+        
     </entity>
 </doctrine-mapping>

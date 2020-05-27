@@ -9,6 +9,8 @@ class CampaignMobile
     protected $id;
     protected $mobile;
     protected $status;
+    protected $campaignSms;
+
 
     /**
      * @return mixed
@@ -56,6 +58,20 @@ class CampaignMobile
     public function setStatus($status)
     {
         $this->status = $status;
+    }
+
+    /**
+     * @return CampaignSms
+     */
+    public function getCampaignSms()
+    {
+        return $this->campaignSms;
+    }
+
+    public function setCampaignSms(CampaignSms $campaignSms)
+    {
+        $this->campaignSms = $campaignSms;
+        return $this;
     }
 
 

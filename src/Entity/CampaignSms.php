@@ -4,6 +4,9 @@
 namespace DotIt\SmsSendingBundle\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 class CampaignSms
 {
     protected $id;
@@ -11,6 +14,12 @@ class CampaignSms
     protected $status;
     protected $date;
     protected $heure;
+    protected $campaignMobiles;
+
+    public function __construct()
+    {
+        $this->campaignMobiles = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -91,6 +100,24 @@ class CampaignSms
     {
         $this->heure = $heure;
     }
+
+    /**
+     * @return Collection | CampaignMobile
+     */
+    public function getCampaignMobiles()
+    {
+        return $this->campaignMobiles;
+    }
+    public function addCampaignMobile(CampaignMobile $campaignMobile)
+    {
+        if(!$this->campaignMobiles->contains($campaignMobile))
+        {
+            $this->campaignMobiles[] = $campaignMobile;
+            $campaignMobile->setCampaignSms($this);
+        }
+        return $this;
+    }
+
 
 
 

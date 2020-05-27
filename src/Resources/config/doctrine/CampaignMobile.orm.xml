@@ -11,5 +11,7 @@
         </field>
         <field name="status" column="status" type="text" nullable="false">
         </field>
+        <many-to-one target-entity="DotIt\SmsSendingBundle\Entity\CampaignSms" field="campaignSms" inversed-by="campaignMobiles">
+        </many-to-one>
     </entity>
 </doctrine-mapping>
