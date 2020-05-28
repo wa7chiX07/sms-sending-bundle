@@ -7,7 +7,7 @@ use DotIt\SmsSendingBundle\Entity\CampaignSms;
 use DotIt\SmsSendingBundle\Service\BaseManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class SmsSending extends BaseManager
+class SmsSendingManager extends BaseManager
 {
     public function __construct(ContainerInterface $container)
     {
