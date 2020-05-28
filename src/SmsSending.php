@@ -17,12 +17,13 @@ class SmsSending extends BaseManager
     {
         if(!$date)
         {
-            $date = date("Y/m/d");
+            $date = date("d/m/Y");
         }
         if(!$heure)
         {
-            $heurNow = date('H:i:s');
-            $heure=date("H:i:s",strtotime(date("H:i:s")." +3 minutes"));
+            $heure = date("H:i");
+            //$heure=date("H:i:s",strtotime(date("H:i:s")." +3 minutes"));
+
         }
 
         $campaignSms = new CampaignSms();
@@ -30,7 +31,6 @@ class SmsSending extends BaseManager
         $campaignSms->setHeure($heure);
         $campaignSms->setMessage($message);
         self::$container->get('doctrine')->getManager()->persist($campaignSms);
-      //  self::$container->get('doctrine')->getManager()->flush();
         $error = false;
         foreach ($mobiles as $mobile)
         {
@@ -90,8 +90,6 @@ class SmsSending extends BaseManager
 
         self::$container->get('doctrine')->getManager()->persist($campaignSms);
         self::$container->get('doctrine')->getManager()->flush();
-
-
 
     }
 }
