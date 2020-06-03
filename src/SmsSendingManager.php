@@ -36,6 +36,7 @@ class SmsSendingManager extends BaseManager
         {
             $campaignMobile = new CampaignMobile();
             $campaignMobile->setMobile($mobile);
+            $message = str_replace(' ','+',$message);
             $curl = self::getSendSms($mobile,$message,$date);
             $result = curl_exec($curl);
             $result = str_replace('<![CDATA[',"",$result);

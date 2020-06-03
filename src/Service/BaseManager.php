@@ -23,7 +23,7 @@ class BaseManager
     {
         $url = self::$baseUrl.'?fct=sms&key='.self::$key
             .'&mobile='.$mobile.
-            '&sms='.$message.'&sender'.
+            '&sms='.$message.
             '&sender='.self::$sender.
             '&date='.$date
         ;

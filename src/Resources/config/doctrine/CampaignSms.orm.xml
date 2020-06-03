@@ -17,6 +17,8 @@
         </field>
         <one-to-many target-entity="DotIt\SmsSendingBundle\Entity\CampaignMobile" mapped-by="campaignSms" field="campaignMobiles">
         </one-to-many>
+        <field name="createdAt" type="date"/>
+        <field name="updatedAt" type="date"/>
 
         
     </entity>

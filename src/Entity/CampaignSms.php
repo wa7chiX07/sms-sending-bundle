@@ -6,8 +6,8 @@ namespace DotIt\SmsSendingBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-
-class CampaignSms
+use DotIt\SmsSendingBundle\Entity\BaseEntity as BaseEntity;
+class CampaignSms extends BaseEntity
 {
     protected $id;
     protected $message;

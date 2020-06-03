@@ -3,8 +3,9 @@
 
 namespace DotIt\SmsSendingBundle\Entity;
 
+use DotIt\SmsSendingBundle\Entity\BaseEntity as BaseEntity;
 
-class CampaignMobile
+class CampaignMobile extends BaseEntity
 {
     protected $id;
     protected $mobile;
