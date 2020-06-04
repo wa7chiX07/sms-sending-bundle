@@ -13,7 +13,6 @@
         </field>
         <many-to-one target-entity="DotIt\SmsSendingBundle\Entity\CampaignSms" field="campaignSms" inversed-by="campaignMobiles">
         </many-to-one>
-        <field name="createdAt" type="date"/>
-        <field name="updatedAt" type="date"/>
+
     </entity>
 </doctrine-mapping>
