@@ -1,0 +1,25 @@
+{
+  "name": "dotit/sms-sending-bundle",
+  "type": "library",
+  "description": "SmsSendingBundle is a Symfony 3.4 bundle for tunisiesms Api .",
+  "keywords": ["sms","sending","dotit","tunisiesms"],
+  "homepage": "https://github.com/wa7chiX07/sms-sending-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Chadli Ouhichi",
+      "email": "louhichi.chadli93@outlook.fr",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "doctrine/doctrine-bundle": "^1.6",
+    "doctrine/orm": "^2.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "DotIt\\SmsSendingBundle\\": "src/"
+    }
+  }
+}
