@@ -4,4 +4,6 @@ services:
     autoconfigure: true
     public: false
 
-  DotIt\SmsSendingBundle\SmsSendingManager: ~
+  DotIt\SmsSendingBundle\SmsSendingManager:
+    arguments: ['@service_container']
+    public: true
